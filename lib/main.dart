@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -14,9 +16,23 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(title: 'Flutter Material 1'),
+      initialRoute: '/login',
+      onGenerateRoute: _getRoute,
+      home: const HomePage(),
     );
   }
+}
+
+Route<dynamic>? _getRoute(RouteSettings settings) {
+  if (settings.name != '/login') {
+    return null;
+  }
+
+  return MaterialPageRoute<void>(
+    settings: settings,
+    builder: (BuildContext context) => const LoginPage(title: 'Flutter Material 1'),
+    fullscreenDialog: true,
+  );
 }
 
 class LoginPage extends StatefulWidget {
