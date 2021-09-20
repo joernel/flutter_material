@@ -1,6 +1,6 @@
 # flutter_material_1
 
-Flutter Material 1
+Flutter Material
 
 ## Getting Started
 
